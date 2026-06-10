@@ -1,0 +1,23 @@
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void PrintFavoriteColors()
+        {
+            // Write your code here
+            string[] favoriteColors = {"blue", "red", "green", "violet", "orange"};
+            Console.WriteLine(favoriteColors[0]);
+            Console.WriteLine(favoriteColors[1]);
+            Console.WriteLine(favoriteColors[2]);
+            Console.WriteLine(favoriteColors[3]);
+            Console.WriteLine(favoriteColors[4]);
+        }
+
+        public static void Main(string[] args)
+        {
+            PrintFavoriteColors();
+        }
+    }
+}
