@@ -1,0 +1,47 @@
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static bool NameExists(string[] users, string targetName)
+        {
+            // Write your code here
+            foreach (string user in users)
+            {
+                if (user == targetName)
+                return true;
+            }
+            return false;
+        }
+
+        public static void Main(string[] args)
+        {
+            string[] registeredUsers = { "Alice", "Bob", "Charlie", "Diana" };
+            string searchName = "Charlie";
+            bool exists = NameExists(registeredUsers, searchName);
+            string message;
+            if (exists)
+            {
+                message = "Charlie is a registered user.";
+            }
+            else
+            {
+                message = "Charlie is not a registered user.";
+            }
+            Console.WriteLine(message);
+
+            searchName = "Eve";
+            exists = NameExists(registeredUsers, searchName);
+            if (exists)
+            {
+                message = "Eve is a registered user.";
+            }
+            else
+            {
+                message = "Eve is not a registered user.";
+            }
+            Console.WriteLine(message);
+        }
+    }
+}
