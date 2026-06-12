@@ -1,0 +1,22 @@
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void PrintArrayReverse(string[] arr)
+        {
+            // Start with i at the last value
+            for (int i= arr.Length -1; i >= 0; i--)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            string[] fruits = { "Apple", "Banana", "Cherry", "Date" };
+            PrintArrayReverse(fruits);
+        }
+    }
+}
