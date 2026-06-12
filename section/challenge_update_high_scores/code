@@ -1,0 +1,19 @@
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Write your code here
+            int[] highScores = {1200, 950, 870, 760, 650};
+            highScores[1] = 990;
+            
+            for (int i = 0; i < highScores.Length; i++)
+            {
+                Console.WriteLine(highScores[i]);
+            }
+        }
+    }
+}
