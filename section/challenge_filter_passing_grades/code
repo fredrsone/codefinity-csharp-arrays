@@ -1,3 +1,9 @@
+// Task
+//Write a program that filters and prints all passing grades from an integer array of scores. A passing grade is any score that is 60 or above.
+//
+//Return a new integer array containing only the values from scores that are greater than or equal to 60.
+//The order of passing grades in the returned array should match their order in the original scores array.
+//If there are no passing grades, return an empty array.
 using System;
 using System.Collections.Generic;
 
