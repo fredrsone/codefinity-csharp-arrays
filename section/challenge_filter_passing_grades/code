@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static int[] FilterPassingGrades(int[] scores)
+        {
+            // Write your code here
+            var PassingGrades = new List<int>();
+            for (int i = 0; i< scores.Length; i++)
+            {
+                if (scores[i] >= 60)
+                {
+                    PassingGrades.Add(scores[i]);
+                }
+            }
+            return PassingGrades.ToArray();
+        }
+
+        public static void Main(string[] args)
+        {
+            int[] scores = { 45, 88, 59, 72, 95, 60, 38 };
+            int[] passingGrades = FilterPassingGrades(scores);
+            Console.WriteLine("Passing grades:");
+            for (int i = 0; i < passingGrades.Length; i++)
+            {
+                int grade = passingGrades[i];
+                Console.WriteLine(grade);
+            }
+        }
+    }
+}
