@@ -1,0 +1,80 @@
+/* TASK 
+Write a program to analyze a week's temperature readings using an array. Your program should determine the highest temperature, the lowest temperature, and the average temperature from the array of daily readings.
+
+Find the highest value in the temperatures array and return it.
+Find the lowest value in the temperatures array and return it.
+Calculate the average of all values in the temperatures array and return it.
+Use only the data provided in the temperatures array parameter for each function. */
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            int[] weekTemperatures = { 68, 70, 75, 71, 69, 73, 72 };
+            int highest = FindHighestTemperature(weekTemperatures);
+            int lowest = FindLowestTemperature(weekTemperatures);
+            double average = CalculateAverageTemperature(weekTemperatures);
+
+            string highestTemp = $"Highest temperature: {highest}";
+            string lowestTemp = $"Lowest temperature: {lowest}";
+            string averageTemp = $"Average temperature: {average}";
+
+            Console.WriteLine(highestTemp);
+            Console.WriteLine(lowestTemp);
+            Console.WriteLine(averageTemp);
+        }
+
+        public static int FindLowestTemperature(int[] temperatures)
+        {
+            // Write your code here to find maximum temperature
+            int min = temperatures[0];
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                if (temperatures[i] < min)
+                {
+                    min = temperatures[i];
+                }
+                //return min;
+            }
+            return min;
+            //return 0;
+        }
+
+        public static int FindHighestTemperature(int[] temperatures)
+        {
+            // Write your code here to find minimum teperature
+            int max = temperatures[0];
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                if (temperatures[i] > max)
+                {
+                    max = temperatures[i];
+                }
+                //return max;
+            }
+            return max;
+            //return 0;
+        }
+
+        public static double CalculateAverageTemperature(int[] temperatures)
+        {
+            // Write your code here to calcutlate averge temperature
+            double sum = 0;
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                sum += temperatures[i];
+            }
+            double average = 0;
+            if (temperatures.Length > 0)
+            {
+                average= sum / temperatures.Length;
+                //return sum;
+            }
+            return average;
+            //return 0;
+        }
+    }
+}
