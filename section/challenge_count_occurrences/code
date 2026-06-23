@@ -1,3 +1,11 @@
+/* Task
+Completed
+Write a program that counts and returns the number of times a specific value appears in an integer array.
+
+Loop through each element of the numbers array.
+Check if the current element is equal to the target value.
+Count each occurrence where the element matches the target.
+Return the total count.*/
 using System;
 
 namespace ConsoleApp
