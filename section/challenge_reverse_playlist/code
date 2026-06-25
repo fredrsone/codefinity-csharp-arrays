@@ -1,0 +1,38 @@
+/*Task
+Reverse the order of songs in a playlist represented by a string array.
+
+Swap the first element with the last, the second with the second-to-last, and so on, until the entire array is reversed.
+The function must modify the original array so that its elements appear in reverse order.*/
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void ReversePlaylist(string[] playlist)
+        {
+            // Write your code here
+            int n = playlist.Length;
+            string[] reversed = new string[n];
+            for (int i =0; i < n; i++)
+            {
+                reversed[i] = playlist[n - 1 - i];
+            }
+            for (int i =0; i < n; i++)
+            {
+                playlist[i] = reversed[i];
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            string[] playlist = { "Song A", "Song B", "Song C", "Song D" };
+            ReversePlaylist(playlist);
+            foreach (string song in playlist)
+            {
+                string output = song;
+                Console.WriteLine(output);
+            }
+        }
+    }
+}
