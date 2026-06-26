@@ -1,0 +1,41 @@
+/*Task
+Write a method that sorts an array of integer test scores in ascending order.
+
+The method must arrange the elements of the scores array from lowest to highest value.
+The method must update the original array in place so that the changes are visible after calling the method.
+
+*/
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            int[] scores = { 88, 75, 92, 60, 83 };
+            SortScores(scores);
+            string sortedScores = string.Join(", ", scores);
+            Console.WriteLine(sortedScores);
+        }
+        public static void SortScores(int[] scores)
+        {
+            // Write your code here
+            int n = scores.Length;
+            for (int i =0; i < n -1; i++)
+            {
+                int minIndex = i;
+                for(int j = i + 1; j < n; j++)
+                {
+                    if (scores[j] < scores[minIndex])
+                    {
+                      minIndex = j; 
+                    }
+                }
+                int temp = scores[i];
+                scores[i] = scores[minIndex];
+                scores[minIndex] = temp;
+            } 
+        }
+    }
+}
