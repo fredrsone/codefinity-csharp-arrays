@@ -1,0 +1,38 @@
+/*Task
+Write a program that creates a new array containing only unique values from an integer array.
+
+To complete the function:
+
+Iterate through the numbers array.
+Add each value to a new collection only if it is not already present.
+Return a new array containing all unique values.*/
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static int[] RemoveDuplicates(int[] numbers)
+        {
+            // Write your code here
+            var uniqueList = new List<int>();
+            foreach (var n in numbers)
+            {
+                if (!uniqueList.Contains(n))
+                {
+                    uniqueList.Add(n);
+                }
+            }
+            return uniqueList.ToArray();
+        }
+
+        public static void Main(string[] args)
+        {
+            int[] sampleNumbers = { 2, 3, 2, 5, 3, 7, 8, 5, 9 };
+            int[] uniqueNumbers = RemoveDuplicates(sampleNumbers);
+            string result = string.Join(", ", uniqueNumbers);
+            Console.WriteLine(result);
+        }
+    }
+}
