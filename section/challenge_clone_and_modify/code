@@ -1,0 +1,50 @@
+/*Task
+Write a program that demonstrates cloning an array and modifying the clone without affecting the original. You will work with integer arrays.
+
+The CloneArray function should create a new array that is a copy of the input array and return it.
+The ModifyArray function should change each element in the provided array by adding 10 to it.
+The main execution should show that modifying the clone does not change the original array.*/
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static int[] CloneArray(int[] original)
+        {
+            // Write your code here to create deep copy
+            int[] CloneArray = new int [original.Length];
+            for (int i = 0; i < original.Length; i++)
+            {
+                CloneArray[i] = original[i];
+            }
+            return CloneArray;
+        }
+
+        public static void ModifyArray(int[] array)
+        {
+            // Write your code here to modify the cloned array +10
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[i] + 10;
+            }
+        }
+
+        public static void PrintArray(int[] array)
+        {
+            string arrayString = string.Join(", ", array);
+            Console.WriteLine(arrayString);
+        }
+
+        public static void Main(string[] args)
+        {
+            int[] numbers = { 2, 4, 6, 8, 10 };
+            int[] clonedNumbers = CloneArray(numbers);
+            ModifyArray(clonedNumbers);
+            string originalString = string.Join(", ", numbers);
+            string cloneString = string.Join(", ", clonedNumbers);
+            Console.WriteLine("Original array: " + originalString);
+            Console.WriteLine("Cloned and modified array: " + cloneString);
+        }
+    }
+}
