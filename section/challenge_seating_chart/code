@@ -1,0 +1,54 @@
+/*Task
+You have learned how to declare and use 2D arrays. In this task, you will practice by creating and displaying a 
+classroom seating chart.
+
+Create a 2D string array with 3 rows and 4 columns where each element is a student's name.
+Return the seating chart from the CreateSeatingChart function.
+Print the seating chart in table format using the PrintSeatingChart function so that each row of names appears on a new line, 
+and names in the same row are separated by " | ".
+*/
+
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static string[,] CreateSeatingChart()
+        {
+            // Write your code here to create array
+            string[,] seatingChart = new string[3,4]
+            {
+                { "Alice", "Bob", "Charlie", "Diana" },
+                { "Eve",   "Frank", "Grace",   "Heidi" },
+                { "Ivan",  "Judy",  "Mallory", "Niaj" }
+            };
+            return seatingChart;
+        }
+
+        public static void PrintSeatingChart(string[,] chart)
+        {
+            // Write your code here to print seating chart
+            int rows = chart.GetLength(0);
+            int cols = chart.GetLength(1);
+
+            for (int row = 0; row < rows; row++)
+            {
+                string rowOutput = "";
+                for (int col = 0; col < cols; col++)          // ← added missing semicolon after GetLength(1)
+                {
+                    rowOutput += chart[row, col];
+                    if (col < cols - 1)
+                        rowOutput += " | ";
+                }
+                Console.WriteLine(rowOutput);
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            string[,] seatingChart = CreateSeatingChart();
+            PrintSeatingChart(seatingChart);
+        }
+    }
+}
