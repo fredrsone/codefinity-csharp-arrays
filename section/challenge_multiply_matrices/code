@@ -1,0 +1,79 @@
+/*Task
+Multiply two 2D integer arrays (matrices) and return the resulting matrix.
+
+Multiply the two provided matrices according to matrix multiplication rules.
+The number of columns in the first matrix must match the number of rows in the second matrix.
+Return a new matrix containing the product.
+Each element in the resulting matrix should be calculated as the sum of products of corresponding elements 
+from the row of the first matrix and the column of the second matrix.*/
+using System;
+
+namespace ConsoleApp
+{
+    public class Program
+    {
+        public static int[,] MultiplyMatrices(int[,] matrixA, int[,] matrixB)
+        {
+            // Write your code here
+            int rowsA = matrixA.GetLength(0);
+            int colsA = matrixA.GetLength(1);
+            int rowsB = matrixB.GetLength(0);
+            int colsB = matrixB.GetLength(1);
+
+            if (colsA != rowsB)
+            {
+                // Console.WriteLine("Cannot multiply: incompatible matrix sizes.");
+                throw new ArgumentException("Number of columns in matrixA must match number of rows in matrixB.");
+            }
+
+            int[,] result = new int[rowsA, colsB];
+
+            for (int i = 0; i < rowsA; i++)
+            {
+                for (int j = 0; j < colsB; j++)
+                {
+                    int sum = 0;
+                    for (int k = 0; k < colsA; k++)
+                    {
+                        sum += matrixA[i, k] * matrixB[k, j];
+                    }
+                    result[i, j] = sum;
+                }
+            }
+            return result;
+        }
+
+        public static void PrintMatrix(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                string rowString = "";
+                for (int j = 0; j < cols; j++)
+                {
+                    rowString += matrix[i, j] + " ";
+                }
+                Console.WriteLine(rowString.TrimEnd());
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            int[,] matrixA = {
+                { 1, 2, 3 },
+                { 4, 5, 6 }
+            };
+
+            int[,] matrixB = {
+                { 7, 8 },
+                { 9, 10 },
+                { 11, 12 }
+            };
+
+            int[,] product = MultiplyMatrices(matrixA, matrixB);
+            PrintMatrix(product);
+        }
+    }
+}
